@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: #f0f8ff;
+            background-color:rgb(255, 255, 255);
             background-image: url('33422-3840x2160-desktop-4k-one-piece-background.jpg');
             background-position: center; 
             background-repeat: no-repeat; 
