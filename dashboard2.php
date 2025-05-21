@@ -104,7 +104,7 @@ $result = $conn->query($sql);
     }
         table { border-collapse: collapse; width: 90%; margin: 20px auto; }
         th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        th { background-color: #f0f0f0; }
+        th { background-color:rgb(57, 231, 9); }
         a.delete-link { color: red; text-decoration: none; }
     </style>
 </head>
