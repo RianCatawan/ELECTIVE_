@@ -18,6 +18,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sex = $_POST['sex'];
     $role = $_POST['role'];
 
+    // ✅ Check if username already exists
+    $checkUser = "SELECT * FROM users WHERE username = '$username'";
+    $result = $conn->query($checkUser);
+
+    if ($result->num_rows > 0) {
+        // Username already exists
+        echo "<script>
+                alert('Username already taken. Please choose a different one.');
+                window.location.href = 'register.php'; // Change to your actual registration form page
+              </script>";
+        exit();
+    }
+
+    // ✅ Insert new user
     $sql = "INSERT INTO users (first_name, last_name, email, username, password, birthdate, sex, role)
             VALUES ('$fname', '$lname', '$email', '$username', '$password', '$birthdate', '$sex', '$role')";
 
@@ -26,55 +40,148 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['role'] = $role;
 
         // Redirect based on role
-       if ($role === 'admin' || $role === 'editor') {
-    session_start();
-    $_SESSION['temp_user_data'] = $_POST; // temporarily store all user data
-    header("Location: confirm_role.php");
-    exit();
-}
+        if ($role === 'admin' || $role === 'editor') {
+            $_SESSION['temp_user_data'] = $_POST;
+            header("Location: confirm_role.php");
         } else {
             header("Location: index.php");
         }
         exit();
     } else {
-        echo " " . $conn->error;
+        echo "Error: " . $conn->error;
     }
-
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
-    <style>
-        body { font-family: Arial; background: #f0f2f5; padding: 40px; }
-        .container { background: #fff; padding: 30px; max-width: 500px; margin: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        input, select { width: 100%; padding: 10px; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc; }
-        input[type="submit"] { background: #007bff; color: white; font-weight: bold; cursor: pointer; }
-    </style>
+  <title>Register</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #ffffff;
+      background-image: url('smoke.jpg');
+
+      background-repeat: no-repeat;
+      background-size: cover;
+    
+
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background-color: #000;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-control {
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+    .row > .col {
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+    input[type="submit"] {
+      margin-top: 20px;
+      background-color: #1877f2;
+      color: white;
+      font-weight: bold;
+      border: none;
+    }
+    input[type="submit"]:hover {
+      background-color: #165ec9;
+    }
+ 
+nav.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+
+  margin-left: var(--navbar-offset, -3px);
+}
+
+body {
+  padding-top: 90px;
+}
+
+.custom-brand {
+  margin-left: var(--brand-offset, 100px);
+}
+    .move-back {
+  margin-left: 100px;  /* Move a little to the right */
+  margin-top: 59px;   /* Move a little to the bottom */
+  text-decoration-color: #fff;
+}
+
+  </style>
 </head>
+
+<a href="index1.php" class="move-back" style="color: #ffffff;">back</a>
+
 <body>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
+  <div class="container-fluid">
+    <a class="navbar-brand custom-brand" href="#">Technest</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <div class="container">
-    <h2>User Registration</h2>
-    <form method="POST" action="register.php">
-        <input type="text" name="first_name" placeholder="First Name" required>
-        <input type="text" name="last_name" placeholder="Last Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="date" name="birthdate" required>
-        <select name="sex" required>
-            <option value="">Select Sex</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
-        <select name="role" required>
-            <option value="">Select Role</option>
-            <option value="admin">Admin</option>
-            <option value="editor">Editor</option>
-            <option value="user">User</option>
-        </select>
-        <input type="submit" value="Register">
-    </form>
+  <h2 style="color: #fff;"> Create Account</h2>
+  <form method="POST" action="register.php">
+    
+    <div class="row">
+      <div class="col">
+        <input type="text" name="first_name" class="form-control" placeholder="First name" required>
+      </div>
+      <div class="col">
+        <input type="text" name="last_name" class="form-control" placeholder="Last name" required>
+      </div>
+    </div>
+    
+    <input type="email" name="email" class="form-control" placeholder="Email" required>
+    <input type="text" name="username" class="form-control" placeholder="Username" required>
+    <input type="password" name="password" class="form-control" placeholder="New password" required>
+    <input type="date" name="birthdate" class="form-control" required>
+    
+    <select name="sex" class="form-control" required>
+      <option value="">Select Sex</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+
+    <select name="role" class="form-control" required>
+      <option value="">Select Role</option>
+      <option value="admin">Admin</option>
+      <option value="editor">Editor</option>
+      <option value="user">User</option>
+    </select>
+
+    <input type="submit" value="Register" class="form-control">
+    
+  </form>
 </div>
+
 </body>
 </html>

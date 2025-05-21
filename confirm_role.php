@@ -51,22 +51,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <title>Confirm Role Access</title>
     <style>
-        body { font-family: Arial; background-color: #f2f2f2; padding: 40px; }
-        .box { background: #fff; max-width: 400px; margin: auto; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        body { font-family: Arial; background-color:rgb(0, 0, 0); padding: 40px;
+        background-image: url(smoke.jpg);
+ 
+      background-repeat: no-repeat;
+      background-size: cover;
+        }
+        .box { background: #000; max-width: 400px; margin: auto; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
         input[type="password"], button {
             width: 100%; padding: 12px; margin: 10px 0;
             border: 1px solid #ccc; border-radius: 5px;
         }
         button {
-            background-color: #007bff; color: white; border: none;
+            background-color:rgb(4, 232, 42); color: white; border: none;
         }
         .error { color: red; font-weight: bold; }
     </style>
 </head>
 <body>
+    <br><br><br><br><br>
 <div class="box">
-    <h2>Confirm Admin/Editor Access</h2>
-    <p>Please enter the confirmation password to complete registration.</p>
+    <h2 style="color: #ccc;">Confirm Admin/Editor Access</h2>
+    <p style="color: #ccc;">Please enter the confirmation password to complete registration.</p>
     <form method="POST">
         <input type="password" name="confirm_password" placeholder="Enter password" required>
         <button type="submit">Confirm</button>

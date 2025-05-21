@@ -29,22 +29,72 @@ $result = $conn->query("SELECT * FROM users");
 <html>
 <head>
     <title>Admin Dashboard</title>
-    <style>
-        body { font-family: Arial; background-color: #f4f4f4; padding: 20px; }
-        table { border-collapse: collapse; width: 100%; background-color: #fff; }
-        th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
-        th { background-color: #007bff; color: white; }
-        a.button, button { padding: 8px 15px; border: none; border-radius: 5px; text-decoration: none; cursor: pointer; }
-        a.button.update { background-color: #28a745; color: white; }
-        a.button.delete { background-color: #dc3545; color: white; }
-        .logout { float: right; background-color: #333; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; }
-    </style>
+   <style>
+    body {
+        font-family: Arial;
+        background-color: rgb(0, 0, 0);
+        padding: 20px;
+        margin: 0;
+        background-image: url(smoke.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* Keep the background static while scrolling */
+        min-height: 200vh; /* Make the page tall for scrolling */
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 90%;
+        background-color: #fff;
+        margin: 0 auto; /* Center the table */
+        margin-top: 100px; /* Push down below navbar */
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: rgba(30, 255, 0, 0.75);
+        color: white;
+    }
+
+    a.button, button {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a.button.update {
+        background-color: rgba(10, 222, 18, 0.82);
+        color: white;
+    }
+
+    a.button.delete {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .logout {
+        float: right;
+        background-color: #333;
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+</style>
+
 </head>
 <body>
-
-<h2>Welcome, <?= $_SESSION['role']; ?>!</h2>
+<h2 style="color: #fff;"> <?= $_SESSION['role'];?> Dashboard</h2>
 <a href="index.php" class="logout">Logout</a>
-<h3>User Records</h3>
+<h3 style="color: #fff;">User Records</h3>
 
 <table>
     <tr>
@@ -62,7 +112,7 @@ $result = $conn->query("SELECT * FROM users");
         <td><?= $row['role'] ?></td>
         <td>
         <td>
-            <a class="button update" href="edit_user.php?id=<?= $row['id'] ?>">Update</a>
+            <a class="button update" href="edit_user.php?id=<?= $row['id'] ?> ">Update</a>
             <a class="button delete" href="?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
         </td>
     </tr>

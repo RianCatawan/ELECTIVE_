@@ -8,13 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
-        body {
-            background-color:rgb(255, 255, 255);
-            background-image: url('33422-3840x2160-desktop-4k-one-piece-background.jpg');
-            background-position: center; 
-            background-repeat: no-repeat; 
-            background-size: cover; 
-        }
+    body {
+    background-color: rgb(255, 255, 255);
+    background-image: url(smoke.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover; 
+}
         .hidden {
             display: none;
         }
@@ -22,17 +22,15 @@
             cursor: pointer;
         }
         .bi-person:hover {
-    color: #0d6efd; /* Bootstrap primary color */
+    color: #0d6efd;
     cursor: pointer;
 }
     </style>
 </head>
 <body>
-   <nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 0, 0, 0.847); border: 2px solid black; height: 3.5cm;">
+   <nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 0, 0, 0.85); border: 2px solid black; height: 3.5cm;">
   <div class="container-fluid" style="color: white;">
 
-
-      <!-- Search form -->
       <div class="mx-auto d-flex justify-content-center">
   <form class="d-flex" role="search" onsubmit="return false;">
     <input class="form-control me-2" type="search" id="searchInput" placeholder="🔍" aria-label="Search" style="width: 300px; height: 40px; border: 2px solid rgb(0, 0, 0);" oninput="filterCards()">
@@ -40,7 +38,6 @@
   </form>
 </div>
 
-      <!-- Icon button on the right -->
      <a href="index1.php" style="color: rgb(255, 252, 252); font-size: 1.2rem; margin-right: 20px;">
   Log in
 </a>
