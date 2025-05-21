@@ -74,8 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       max-width: 500px;
       margin: auto;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      background-color: #000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(5px);
+      background-color: rgba(15, 14, 14, 0.8); 
     }
     h2 {
       text-align: center;

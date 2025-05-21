@@ -94,6 +94,7 @@ $result = $conn->query("SELECT * FROM users");
 <body>
 <h2 style="color: #fff;"> <?= $_SESSION['role'];?> Dashboard</h2>
 <a href="index.php" class="logout">Logout</a>
+<a href="dashboard2.php" class="logout">Full join sql</a>
 <h3 style="color: #fff;">User Records</h3>
 
 <table>

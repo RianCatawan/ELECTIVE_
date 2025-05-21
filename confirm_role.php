@@ -57,7 +57,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       background-repeat: no-repeat;
       background-size: cover;
         }
-        .box { background: #000; max-width: 400px; margin: auto; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .box {
+            max-width: 400px; margin: auto; padding: 30px; border-radius: 10px;  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(5px);
+      background-color: rgba(15, 14, 14, 0.8);  }
         input[type="password"], button {
             width: 100%; padding: 12px; margin: 10px 0;
             border: 1px solid #ccc; border-radius: 5px;

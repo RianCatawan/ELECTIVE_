@@ -13,7 +13,7 @@
     background-image: url(smoke.jpg);
     background-repeat: no-repeat;
     background-position: bottom;
-    background-size: cover; 
+    background-size: cover; /* Width auto, height 300px */
 }
         .hidden {
             display: none;
@@ -31,14 +31,9 @@
    <nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 0, 0, 0.85); border: 2px solid black; height: 3.5cm;">
   <div class="container-fluid" style="color: white;">
 
-      <div class="mx-auto d-flex justify-content-center">
-  <form class="d-flex" role="search" onsubmit="return false;">
-    <input class="form-control me-2" type="search" id="searchInput" placeholder="🔍" aria-label="Search" style="width: 300px; height: 40px; border: 2px solid rgb(0, 0, 0);" oninput="filterCards()">
-    <button class="btn btn-outline-success" type="submit" style="border: 2px solid rgb(0, 0, 0);">Search</button>
-  </form>
-</div>
+    
 
-     <a href="index1.php" style="color: rgb(255, 252, 252); font-size: 1.2rem; margin-right: 20px;">
+     <a href="index1.php" style="color: rgb(255, 252, 252); font-size: 1.2rem; margin-left: 1240px;">
   Log in
 </a>
     </div>
