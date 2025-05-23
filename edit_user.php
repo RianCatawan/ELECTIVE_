@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         h2 {
             text-align: center;
             margin-bottom: 30px;
-            color: #00ffcc;
+            color:rgb(0, 255, 64);
         }
 
         .form-row {

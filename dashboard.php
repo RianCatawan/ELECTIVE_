@@ -38,17 +38,17 @@ $result = $conn->query("SELECT * FROM users");
         background-image: url(smoke.jpg);
         background-size: cover;
         background-repeat: no-repeat;
-        background-attachment: fixed; /* Keep the background static while scrolling */
-        min-height: 200vh; /* Make the page tall for scrolling */
-        overflow-y: auto; /* Enable vertical scrolling */
+        background-attachment: fixed; 
+        min-height: 200vh; 
+        overflow-y: auto; 
     }
 
     table {
         border-collapse: collapse;
         width: 90%;
         background-color: #fff;
-        margin: 0 auto; /* Center the table */
-        margin-top: 100px; /* Push down below navbar */
+        margin: 0 auto; 
+        margin-top: 100px;
     }
 
     th, td {
@@ -88,18 +88,30 @@ $result = $conn->query("SELECT * FROM users");
         text-decoration: none;
         border-radius: 5px;
     }
+ nav.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+
+  margin-left: var(--navbar-offset, -40px);
+}
 </style>
 
 </head>
 <body>
+ 
+
+  
 <h2 style="color: #fff;"> <?= $_SESSION['role'];?> Dashboard</h2>
 <a href="index.php" class="logout">Logout</a>
-<a href="dashboard2.php" class="logout">Full join sql</a>
+<br><br><br>
+<a href="dashboard2.php" class="logout">Left Outer Join SQL</a>
 <h3 style="color: #fff;">User Records</h3>
 
 <table>
     <tr>
-        <th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Birthdate</th><th>Sex</th><th>Role</th><th>Actions</th>
+        <th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Password</th><th>Birthdate</th><th>Gender</th><th>Actions</th>
     </tr>
     <?php while ($row = $result->fetch_assoc()): ?>
     <tr>

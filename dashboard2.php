@@ -21,20 +21,14 @@ if (isset($_GET['delete'])) {
     exit();
 }
 
-// FULL JOIN simulation to fetch combined data
+// Left JOIN simulation to fetch combined data
 $sql = "
 SELECT u.id, u.username, u.email, u.role, ul.password AS login_password
 FROM users u
 LEFT JOIN user_login ul ON u.username = ul.username
-
-UNION
-
-SELECT NULL AS id, ul.username, NULL AS email, NULL AS role, ul.password AS login_password
-FROM user_login ul
-LEFT JOIN users u ON ul.username = u.username
-WHERE u.username IS NULL
-ORDER BY username;
+ORDER BY u.username;
 ";
+
 
 $result = $conn->query($sql);
 ?>
@@ -52,9 +46,9 @@ $result = $conn->query($sql);
         background-image: url(smoke.jpg);
         background-size: cover;
         background-repeat: no-repeat;
-        background-attachment: fixed; /* Keep the background static while scrolling */
-        min-height: 200vh; /* Make the page tall for scrolling */
-        overflow-y: auto; /* Enable vertical scrolling */
+        background-attachment: fixed;
+        min-height: 200vh; 
+        overflow-y: auto; 
     }
 
     table {
@@ -109,10 +103,12 @@ $result = $conn->query($sql);
     </style>
 </head>
 <body>
-    <a href="dashboard.php" class="logout">Logout</a>
-    <h2 style="color: #fff;">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?> (<?php echo htmlspecialchars($_SESSION['role']); ?>)</h2>
+   <br><br>
+    <a href="dashboard.php" class="logout">Back to Dashboard</a>
 
-    <h3 style="color: #fff;">User Data (Combined from users & user_login)</h3>
+    <h2 style="color: #fff;">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?> (<?php echo htmlspecialchars($_SESSION['role']); ?>)</h2>
+<br>
+    <h3 style="color: #fff;">      User Data (Combined from users & user_login)</h3>
 
     <table>
         <thead>

@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sex = $_POST['sex'];
     $role = $_POST['role'];
 
-    // ✅ Check if username already exists
+    //  Check if username already exists
     $checkUser = "SELECT * FROM users WHERE username = '$username'";
     $result = $conn->query($checkUser);
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    // ✅ Insert new user
+    //  Insert new user
     $sql = "INSERT INTO users (first_name, last_name, email, username, password, birthdate, sex, role)
             VALUES ('$fname', '$lname', '$email', '$username', '$password', '$birthdate', '$sex', '$role')";
 
@@ -118,8 +118,8 @@ body {
   margin-left: var(--brand-offset, 100px);
 }
     .move-back {
-  margin-left: 100px;  /* Move a little to the right */
-  margin-top: 59px;   /* Move a little to the bottom */
+  margin-left: 100px; 
+  margin-top: 59px;  
   text-decoration-color: #fff;
 }
 

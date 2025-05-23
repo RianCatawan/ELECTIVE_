@@ -16,14 +16,14 @@
     }
 
     .login-box {
-      background-image: url(''); /* Replace with your image */
+      background-image: url(''); 
       background-size: cover;
       background-position: center;
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(5px);
-      background-color: rgba(15, 14, 14, 0.8); /* Semi-transparent overlay */
+      background-color: rgba(15, 14, 14, 0.8);
     }
 
     .login-box h3 {
